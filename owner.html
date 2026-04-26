@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProcuRents — For Owners, CEOs & Presidents</title>
+  <meta name="description" content="Your rental spend is leaking profit. ProcuRents acts as your in-house procurement partner — standardizing pricing, eliminating waste, and giving you hours of productivity back." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:      #080F28;
+      --navy2:     #0D1A3A;
+      --blue:      #1B6EC2;
+      --sky:       #29ABE2;
+      --steel:     #8A9BB0;
+      --white:     #FFFFFF;
+      /* Owner accent: bold gold/amber — signals money, leadership, profit */
+      --role:      #F5A623;
+      --role-lt:   #FFD180;
+      --role-glow: rgba(245,166,35,0.15);
+      --card-bg:   rgba(255,255,255,0.03);
+      --card-br:   rgba(255,255,255,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: sticky;
+      top: 0;
+      background: rgba(8,15,40,0.93);
+      backdrop-filter: blur(14px);
+      z-index: 50;
+    }
+    .logo-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+    .logo-text .p { color: var(--steel); }
+    .logo-text .r { color: var(--sky); }
+    .role-chip {
+      font-family: 'Barlow', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--role);
+      background: rgba(245,166,35,0.10);
+      border: 1px solid rgba(245,166,35,0.25);
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 24px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Diagonal accent bar */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--role) 0%, transparent 100%);
+      opacity: 0.6;
+    }
+    .hero-glow {
+      position: absolute;
+      width: 500px; height: 500px;
+      top: -160px; right: -160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--role);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: rise 0.6s 0.1s forwards;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 13vw, 80px);
+      line-height: 0.95;
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: rise 0.6s 0.2s forwards;
+    }
+    .hero h1 .accent { color: var(--role); display: block; }
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.58);
+      max-width: 460px;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: rise 0.6s 0.3s forwards;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px 32px;
+      background: var(--role);
+      color: #000;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s;
+      align-self: flex-start;
+      letter-spacing: 0.3px;
+      opacity: 0;
+      animation: rise 0.6s 0.4s forwards;
+    }
+    .hero-cta:hover { background: var(--role-lt); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(245,166,35,0.30); }
+
+    @keyframes rise {
+      from { opacity:0; transform: translateY(22px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+    /* ── STAT ROW ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 0;
+    }
+    .stat-box {
+      padding: 24px 22px;
+      background: var(--navy2);
+    }
+    .stat-box .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--role);
+      letter-spacing: 1px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-box .lbl {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.4;
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 56px 24px; }
+    .sec-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--role);
+      margin-bottom: 12px;
+    }
+    .sec-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(32px, 8vw, 48px);
+      line-height: 1.0;
+      letter-spacing: 0.5px;
+      margin-bottom: 36px;
+    }
+
+    /* Pain cards — horizontal bold style */
+    .pain-list { display: flex; flex-direction: column; gap: 2px; }
+    .pain-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 22px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-br);
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .pain-item:hover { background: rgba(245,166,35,0.05); border-color: rgba(245,166,35,0.20); }
+    .pain-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: rgba(245,166,35,0.25);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 32px;
+      margin-top: -2px;
+    }
+    .pain-item h3 {
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--white);
+    }
+    .pain-item p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.50);
+      line-height: 1.65;
+    }
+
+    /* ── PROFIT IMPACT ── */
+    .impact-section {
+      padding: 56px 24px;
+      background: var(--navy2);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .impact-grid { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+    .impact-card {
+      padding: 22px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-br);
+      border-radius: 6px;
+    }
+    .impact-card .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--role);
+      background: rgba(245,166,35,0.10);
+      padding: 3px 9px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .impact-card h4 {
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .impact-card p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.50);
+      line-height: 1.6;
+    }
+
+    /* ── RENTFWD ── */
+    .rfwd-block {
+      margin: 0 24px 56px;
+      padding: 32px 24px;
+      border: 1px solid rgba(245,166,35,0.20);
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(245,166,35,0.05) 0%, rgba(27,110,194,0.05) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .rfwd-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--role), var(--sky));
+    }
+    .rfwd-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .rfwd-logo .rent { color: var(--sky); }
+    .rfwd-logo .fwd  { color: var(--white); }
+    .rfwd-sub {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 16px;
+    }
+    .rfwd-block h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+    .rfwd-block p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.50);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .rfwd-catches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .rfwd-catch-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      background: rgba(245,166,35,0.08);
+      border: 1px solid rgba(245,166,35,0.18);
+      border-radius: 3px;
+      color: var(--role-lt);
+    }
+
+    /* ── BOTTOM CTA ── */
+    .bottom-cta {
+      padding: 64px 24px;
+      text-align: center;
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .bottom-cta h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 9vw, 56px);
+      line-height: 1.0;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+    .bottom-cta h2 span { color: var(--role); }
+    .bottom-cta p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.45);
+      margin: 0 auto 32px;
+      max-width: 360px;
+      line-height: 1.7;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px 36px;
+      background: var(--role);
+      color: #000;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
+    }
+    .cta-btn:hover { background: var(--role-lt); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,166,35,0.28); }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 22px 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+    .footer-logo .p { color: var(--steel); }
+    .footer-logo .r { color: var(--sky); }
+    .footer p { font-size: 12px; color: rgba(255,255,255,0.22); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo-text"><span class="p">PROCU</span><span class="r">RENTS</span></div>
+    <div class="role-chip">Owners &amp; Leadership</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-eyebrow">For Owners · CEOs · Presidents</div>
+    <h1>
+      Your rental spend<br>
+      <span class="accent">is leaking profit.</span>
+    </h1>
+    <p class="hero-sub">
+      Disparate pricing across jobsites. Admin hours burned on paperwork. Zero visibility into what you're really paying vendors — or why. There's a direct line from rental inefficiency to reduced profit. ProcuRents closes it.
+    </p>
+    <a href="https://ProcuRents.com" class="hero-cta">
+      See the Solution → 
+    </a>
+  </section>
+
+  <!-- STAT ROW -->
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="num">$=$</div>
+      <div class="lbl">Every dollar of rental waste eliminated is direct profit</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">100%</div>
+      <div class="lbl">We work for you — not the rental companies</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">8</div>
+      <div class="lbl">Specific waste categories our RentFWD system targets on every order</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">0</div>
+      <div class="lbl">Software to install. No dashboards. We handle it all.</div>
+    </div>
+  </div>
+
+  <!-- PAIN POINTS -->
+  <section class="section">
+    <div class="sec-label">The Problem</div>
+    <div class="sec-title">What's actually eating<br>your margin</div>
+    <div class="pain-list">
+      <div class="pain-item">
+        <div class="pain-num">01</div>
+        <div>
+          <h3>Jobsite pricing is all over the map</h3>
+          <p>Different superintendents call different vendors. No standardized rates. No negotiated contracts. Your company is paying three different prices for the same piece of equipment across three different jobs — and nobody knows it.</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-num">02</div>
+        <div>
+          <h3>Reduced jobsite efficiency from rental delays</h3>
+          <p>Equipment that arrives late, wrong, or not at all brings a crew to a halt. Every idle hour on a jobsite is a direct cost. When procurement isn't managed proactively, your crews pay the price in downtime.</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-num">03</div>
+        <div>
+          <h3>Rental spend you can't fully see or control</h3>
+          <p>Rentals get placed in the field with no centralized oversight. Invoices flow through the office without systematic review. By the time someone notices an overcharge, it's already been paid — or it's buried in a stack of others.</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-num">04</div>
+        <div>
+          <h3>Admin overhead eating into your team's productivity</h3>
+          <p>Your project managers and office staff are spending hours on quoting, PO management, invoice disputes, and vendor coordination. That's billable thinking going to administrative overhead that shouldn't require their attention.</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-num">05</div>
+        <div>
+          <h3>Equipment sitting on-rent after the job wraps</h3>
+          <p>Off-renting gets missed. Equipment sits idle on a completed site and keeps billing. Days of unnecessary charges accumulate because nobody owns the off-rent process end-to-end.</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-num">06</div>
+        <div>
+          <h3>You're renting what should be purchased — or vice versa</h3>
+          <p>Without a systematic review, ongoing rentals persist well past the point where buying or leasing would have been more cost-effective. The decision never gets made because no one's tracking it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFIT IMPACT -->
+  <section class="impact-section">
+    <div class="sec-label">The Solution</div>
+    <div class="sec-title">ProcuRents puts you in control of<br>your rental spend</div>
+    <p style="font-size:15px;color:rgba(255,255,255,0.50);line-height:1.75;margin-bottom:32px;">We act as your embedded procurement partner — neutral, on your side, and built to protect your bottom line on every order across every jobsite.</p>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="tag">Standardization</div>
+        <h4>Consistent pricing across all your jobsites</h4>
+        <p>One point of contact, one procurement process, negotiated rates applied uniformly. No more pricing disparity between projects.</p>
+      </div>
+      <div class="impact-card">
+        <div class="tag">Productivity</div>
+        <h4>Hours of admin overhead eliminated immediately</h4>
+        <p>Your team stops managing rental vendors and starts focusing on what they were hired to do. The productivity impact is immediate and measurable.</p>
+      </div>
+      <div class="impact-card">
+        <div class="tag">Profit Protection</div>
+        <h4>Every dollar saved is a dollar of profit</h4>
+        <p>Rental expense reduction doesn't just improve cost efficiency — it flows directly to your bottom line, dollar for dollar.</p>
+      </div>
+      <div class="impact-card">
+        <div class="tag">Visibility</div>
+        <h4>Full oversight of rental spend across all projects</h4>
+        <p>Centralized management means no more invisible rental costs. You get a clear picture of what's being rented, where, and what it's actually costing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RENTFWD CALLOUT -->
+  <div class="rfwd-block">
+    <div class="rfwd-logo"><span class="rent">Rent</span><span class="fwd">FWD</span> ▶▶</div>
+    <div class="rfwd-sub">Rental Financial Waste Defense</div>
+    <h4>Our proprietary system reviews every order for waste — automatically</h4>
+    <p>RentFWD compares every quote, contract, and final invoice against each other at every step. It's not a manual audit — it's a systematic defense against the categories of waste that quietly erode your rental budget on every project.</p>
+    <div class="rfwd-catches">
+      <span class="rfwd-catch-tag">Rate Discrepancies</span>
+      <span class="rfwd-catch-tag">Unauthorized Substitutions</span>
+      <span class="rfwd-catch-tag">Off-Rent Timing</span>
+      <span class="rfwd-catch-tag">Invoice Errors</span>
+      <span class="rfwd-catch-tag">Repair Bill Review</span>
+      <span class="rfwd-catch-tag">Ancillary Fee Auditing</span>
+      <span class="rfwd-catch-tag">Freight Comparisons</span>
+      <span class="rfwd-catch-tag">Buy vs. Lease vs. Rent Analysis</span>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <h2>Protect your profit.<br><span>Start with one call.</span></h2>
+    <p>See how ProcuRents works as your embedded procurement partner — across every jobsite, every vendor, every rental.</p>
+    <a href="https://ProcuRents.com" class="cta-btn">Visit ProcuRents.com →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo"><span class="p">PROCU</span><span class="r">RENTS</span></div>
+    <p>Sourced. Delivered. Done. · © 2025 ProcuRents</p>
+  </footer>
+
+</body>
+</html>
