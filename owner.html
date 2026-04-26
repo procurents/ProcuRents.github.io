@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProcuRents — For Owners, CEOs & Presidents</title>
+  <meta name="description" content="Your rental spend is leaking profit. ProcuRents acts as your in-house procurement partner — standardizing pricing, eliminating waste, and giving your team hours back." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pr-navy:        #0D1B4A;
+      --pr-navy-mid:    #1A2F6E;
+      --pr-blue:        #1B6EC2;
+      --pr-sky:         #29ABE2;
+      --pr-sky-light:   #72CBF0;
+      --pr-steel:       #8A9BB0;
+      --pr-white:       #FFFFFF;
+      --pr-dark-bg:     #080F2B;
+      /* Role accent — Owners/CEOs: gold/amber — signals profit, leadership */
+      --role:           #F5A623;
+      --role-lt:        #FFD180;
+      --role-dim:       rgba(245,166,35,0.10);
+      --role-border:    rgba(245,166,35,0.26);
+      --role-glow:      rgba(245,166,35,0.18);
+      --font-head: 'Barlow Condensed', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+      --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--pr-dark-bg); color: var(--pr-white); -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 66px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px;
+      background: rgba(8,15,43,0.96); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(41,171,226,0.12);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo svg { width: 34px; height: 34px; }
+    .nav-wordmark .procu { font-family: var(--font-head); font-size: 19px; font-weight: 700; color: var(--pr-steel); }
+    .nav-wordmark .rents { font-family: var(--font-head); font-size: 19px; font-weight: 700; color: var(--pr-sky); }
+    .nav-tagline { font-size: 9px; color: var(--pr-steel); letter-spacing: 1px; margin-top: 1px; }
+    .role-chip {
+      font-family: var(--font-head); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--role); background: var(--role-dim); border: 1px solid var(--role-border); padding: 5px 14px; border-radius: 20px;
+    }
+    .nav-cta {
+      font-family: var(--font-head); font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
+      padding: 8px 20px; background: var(--pr-sky); color: var(--pr-white);
+      border: none; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s;
+    }
+    .nav-cta:hover { background: var(--pr-sky-light); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; padding: 110px 28px 80px;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+      background: linear-gradient(155deg, var(--pr-dark-bg) 0%, #0e1840 50%, #131e5a 100%);
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(245,166,35,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(245,166,35,0.02) 1px, transparent 1px);
+      background-size: 54px 54px; animation: drift 24s linear infinite;
+    }
+    @keyframes drift { from{transform:translate(0,0)} to{transform:translate(54px,54px)} }
+    .hero-orb {
+      position: absolute; width: 520px; height: 520px; border-radius: 50%;
+      background: radial-gradient(circle, var(--role-glow) 0%, transparent 70%);
+      top: -150px; right: -140px; pointer-events: none; filter: blur(75px);
+      animation: float 10s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-28px)} }
+    /* Right-side vertical gold bar — ownership, authority */
+    .hero-bar {
+      position: absolute; top: 0; right: 0; width: 3px; height: 100%;
+      background: linear-gradient(to bottom, var(--role), transparent);
+      opacity: 0.5;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 640px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-head); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--role); background: var(--role-dim); border: 1px solid var(--role-border);
+      padding: 6px 14px; border-radius: 20px; margin-bottom: 22px;
+    }
+    .hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--role); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+    .hero h1 {
+      font-family: var(--font-head); font-size: clamp(44px, 8vw, 70px); font-weight: 700;
+      line-height: 1.0; letter-spacing: -0.3px; color: var(--pr-white); margin-bottom: 22px;
+      opacity: 0; animation: up 0.6s 0.1s forwards;
+    }
+    .hero h1 .accent { color: var(--role); display: block; }
+    @keyframes up { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+    .hero-sub {
+      font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.62);
+      max-width: 520px; margin-bottom: 36px; opacity: 0; animation: up 0.6s 0.22s forwards;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; opacity: 0; animation: up 0.6s 0.34s forwards; }
+    .btn-primary {
+      font-family: var(--font-head); font-size: 15px; font-weight: 700; letter-spacing: 0.5px;
+      padding: 13px 28px; background: var(--role); color: #000;
+      border: none; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 24px var(--role-glow); }
+    .btn-outline {
+      font-family: var(--font-head); font-size: 15px; font-weight: 600; letter-spacing: 0.5px;
+      padding: 13px 28px; background: transparent; color: var(--pr-white);
+      border: 1.5px solid rgba(255,255,255,0.28); border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--role); color: var(--role); }
+
+    /* STAT GRID */
+    .stat-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: rgba(255,255,255,0.06); margin-top: 56px; padding-top: 0;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      opacity: 0; animation: up 0.6s 0.46s forwards;
+    }
+    .stat-box { padding: 22px 20px; background: rgba(255,255,255,0.03); }
+    .stat-box .num { font-family: var(--font-head); font-size: 28px; font-weight: 700; color: var(--role); letter-spacing: 0.5px; line-height: 1; margin-bottom: 5px; }
+    .stat-box .lbl { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.4; }
+
+    /* SECTIONS */
+    .section     { padding: 80px 28px; }
+    .section-alt { padding: 80px 28px; background: #091228; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .sec-eyebrow { font-family: var(--font-head); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--role); margin-bottom: 10px; }
+    .sec-title   { font-family: var(--font-head); font-size: clamp(28px, 5vw, 40px); font-weight: 700; line-height: 1.1; color: var(--pr-white); margin-bottom: 12px; }
+    .sec-sub     { font-size: 16px; color: rgba(255,255,255,0.54); line-height: 1.7; margin-bottom: 40px; max-width: 520px; }
+
+    /* PAIN ITEMS — numbered executive style */
+    .pain-list { display: flex; flex-direction: column; gap: 2px; }
+    .pain-item {
+      display: flex; align-items: flex-start; gap: 18px; padding: 22px 20px;
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md); transition: all 0.2s;
+    }
+    .pain-item:hover { background: rgba(245,166,35,0.04); border-color: rgba(245,166,35,0.18); }
+    .pain-num { font-family: var(--font-head); font-size: 30px; font-weight: 700; color: rgba(245,166,35,0.22); line-height: 1; flex-shrink: 0; width: 36px; margin-top: -2px; }
+    .pain-item h3 { font-family: var(--font-head); font-size: 19px; font-weight: 700; color: var(--pr-white); margin-bottom: 7px; }
+    .pain-item p  { font-size: 14px; color: rgba(255,255,255,0.52); line-height: 1.65; }
+
+    /* IMPACT CARDS */
+    .impact-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 0; }
+    .impact-card {
+      padding: 22px 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-md); transition: background 0.2s;
+    }
+    .impact-card:hover { background: rgba(245,166,35,0.04); }
+    .impact-tag {
+      display: inline-block; font-family: var(--font-head); font-size: 10px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase; color: var(--role);
+      background: var(--role-dim); padding: 3px 10px; border-radius: 20px; margin-bottom: 10px;
+    }
+    .impact-card h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--pr-white); margin-bottom: 6px; }
+    .impact-card p  { font-size: 14px; color: rgba(255,255,255,0.50); line-height: 1.65; }
+
+    /* RENTFWD */
+    .rfwd-block {
+      padding: 34px 30px; border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(245,166,35,0.06) 0%, rgba(27,110,194,0.06) 100%);
+      border: 1px solid rgba(245,166,35,0.22); position: relative; overflow: hidden;
+    }
+    .rfwd-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--role), var(--pr-sky)); }
+    .rfwd-logo { font-family: var(--font-head); font-size: 30px; font-weight: 700; font-style: italic; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .rfwd-logo .rent { color: var(--pr-sky); }
+    .rfwd-logo .fwd  { color: var(--pr-white); }
+    .rfwd-sub { font-family: var(--font-head); font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 14px; }
+    .rfwd-block h4 { font-family: var(--font-head); font-size: 19px; font-weight: 700; color: var(--pr-white); margin-bottom: 10px; }
+    .rfwd-block p  { font-size: 14px; color: rgba(255,255,255,0.52); line-height: 1.7; margin-bottom: 18px; }
+    .rfwd-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .rfwd-tag {
+      font-family: var(--font-head); font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+      padding: 4px 11px; background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.20);
+      border-radius: var(--radius-sm); color: var(--role-lt);
+    }
+
+    /* BOTTOM CTA */
+    .bottom-cta {
+      padding: 90px 28px 96px; text-align: center;
+      background: linear-gradient(135deg, var(--pr-navy) 0%, var(--pr-blue) 100%);
+      position: relative; overflow: hidden;
+    }
+    .bottom-cta::before {
+      content: ''; position: absolute; top: -120px; right: -120px;
+      width: 450px; height: 450px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 65%);
+    }
+    .bottom-cta h2 {
+      font-family: var(--font-head); font-size: clamp(32px, 6vw, 48px); font-weight: 700;
+      line-height: 1.1; color: var(--pr-white); margin-bottom: 16px; position: relative; z-index: 1;
+    }
+    .bottom-cta h2 span { color: var(--role); }
+    .bottom-cta p { font-size: 16px; color: rgba(255,255,255,0.60); line-height: 1.7; max-width: 440px; margin: 0 auto 36px; position: relative; z-index: 1; }
+    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+    .btn-cta {
+      font-family: var(--font-head); font-size: 15px; font-weight: 700; letter-spacing: 0.5px;
+      padding: 14px 32px; background: var(--role); color: #000;
+      border: none; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s;
+    }
+    .btn-cta:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 24px var(--role-glow); }
+    .btn-cta-out {
+      font-family: var(--font-head); font-size: 15px; font-weight: 600; letter-spacing: 0.5px;
+      padding: 14px 32px; background: transparent; color: var(--pr-white);
+      border: 1.5px solid rgba(255,255,255,0.30); border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s;
+    }
+    .btn-cta-out:hover { border-color: var(--role); color: var(--role); }
+
+    /* FOOTER */
+    .footer {
+      padding: 26px 28px; background: var(--pr-dark-bg);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    }
+    .footer .procu { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--pr-steel); }
+    .footer .rents { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--pr-sky); }
+    .footer small  { font-size: 12px; color: rgba(255,255,255,0.24); }
+
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .d1{transition-delay:0.10s} .d2{transition-delay:0.20s} .d3{transition-delay:0.30s}
+    .d4{transition-delay:0.40s} .d5{transition-delay:0.50s} .d6{transition-delay:0.60s}
+
+    @media (max-width: 600px) {
+      .stat-grid { grid-template-columns: 1fr; }
+      .nav-cta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-logo">
+      <svg viewBox="0 0 38 38" fill="none">
+        <text x="2" y="28" font-size="26" font-weight="800" fill="#8A9BB0" font-family="serif">P</text>
+        <text x="16" y="28" font-size="26" font-weight="800" fill="#29ABE2" font-family="serif">R</text>
+        <line x1="26" y1="2" x2="14" y2="36" stroke="#1B6EC2" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="nav-wordmark">
+        <div><span class="procu">Procu</span><span class="rents">Rents</span></div>
+        <div class="nav-tagline">Sourced. Delivered. Done.</div>
+      </div>
+    </div>
+    <div class="role-chip">Owners &amp; Leadership</div>
+    <a href="https://ProcuRents.com" class="nav-cta">Visit Our Site ↗</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-bar"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">For Owners · CEOs · Presidents</div>
+      <h1>Your rental spend<br><span class="accent">is leaking profit.</span></h1>
+      <p class="hero-sub">Disparate pricing across jobsites. Admin hours burned on paperwork. Zero visibility into what you're really paying vendors — or why. There's a direct line from rental inefficiency to reduced profit. ProcuRents closes it.</p>
+      <div class="hero-actions">
+        <a href="https://ProcuRents.com" class="btn-primary">See the Solution ↗</a>
+        <a href="#pain" class="btn-outline">See the Problem</a>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-box"><div class="num">$=$</div><div class="lbl">Every dollar of rental waste eliminated is direct, real profit</div></div>
+        <div class="stat-box"><div class="num">100%</div><div class="lbl">On your side — not the rental company's</div></div>
+        <div class="stat-box"><div class="num">8</div><div class="lbl">Specific waste categories RentFWD targets on every single order</div></div>
+        <div class="stat-box"><div class="num">0</div><div class="lbl">Software to install, dashboards to manage, or overhead to add</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pain">
+    <div class="sec-eyebrow">The Problem</div>
+    <h2 class="sec-title fade-up">What's actually eating your margin</h2>
+    <p class="sec-sub fade-up d1">Rental spend is one of the most unmanaged cost centers in construction. Here's where the profit goes.</p>
+    <div class="pain-list">
+      <div class="pain-item fade-up d1"><div class="pain-num">01</div><div><h3>Jobsite pricing is all over the map</h3><p>Different superintendents call different vendors. No standardized rates. No negotiated contracts. Your company pays three different prices for the same equipment across three jobs — and nobody knows it.</p></div></div>
+      <div class="pain-item fade-up d2"><div class="pain-num">02</div><div><h3>Reduced jobsite efficiency from rental delays</h3><p>Equipment that arrives late, wrong, or not at all brings crews to a halt. Every idle hour is a direct cost. Without proactive procurement, your teams pay the price in downtime.</p></div></div>
+      <div class="pain-item fade-up d3"><div class="pain-num">03</div><div><h3>Rental spend you can't fully see or control</h3><p>Rentals placed in the field with no centralized oversight. Invoices flow through the office without systematic review. By the time someone notices an overcharge, it's already been paid.</p></div></div>
+      <div class="pain-item fade-up d4"><div class="pain-num">04</div><div><h3>Admin overhead eating into your team's productivity</h3><p>Your PMs and office staff spend hours on quoting, PO management, invoice disputes, and vendor coordination. Billable thinking going to administrative overhead.</p></div></div>
+      <div class="pain-item fade-up d5"><div class="pain-num">05</div><div><h3>Equipment sitting on-rent after the job wraps</h3><p>Off-renting gets missed. Equipment idles on a completed site and keeps billing. Days of unnecessary charges accumulate because nobody owns the off-rent process end-to-end.</p></div></div>
+      <div class="pain-item fade-up d6"><div class="pain-num">06</div><div><h3>You're renting what should be purchased — or vice versa</h3><p>Without systematic review, ongoing rentals persist past the point where buying or leasing would be more cost-effective. The decision never gets made because no one's tracking it.</p></div></div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="sec-eyebrow">The Solution</div>
+    <h2 class="sec-title fade-up">ProcuRents puts you in control<br>of your rental spend</h2>
+    <p class="sec-sub fade-up d1">We act as your embedded procurement partner — neutral, on your side, and built to protect your bottom line on every order across every jobsite.</p>
+    <div class="impact-grid">
+      <div class="impact-card fade-up d1"><div class="impact-tag">Standardization</div><h4>Consistent pricing across all your jobsites</h4><p>One point of contact, one procurement process, negotiated rates applied uniformly. No more pricing disparity between projects.</p></div>
+      <div class="impact-card fade-up d2"><div class="impact-tag">Productivity</div><h4>Hours of admin overhead eliminated immediately</h4><p>Your team stops managing rental vendors and starts focusing on what they were hired to do. The productivity impact is immediate and measurable.</p></div>
+      <div class="impact-card fade-up d3"><div class="impact-tag">Profit Protection</div><h4>Every dollar saved is a dollar of profit</h4><p>Rental expense reduction doesn't just improve cost efficiency — it flows directly to your bottom line, dollar for dollar, on every order.</p></div>
+      <div class="impact-card fade-up d4"><div class="impact-tag">Visibility</div><h4>Full oversight of rental spend across all projects</h4><p>Centralized management means no more invisible rental costs. A clear picture of what's being rented, where, and what it's actually costing.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="rfwd-block fade-up">
+      <div class="rfwd-logo"><span class="rent">Rent</span><span class="fwd">FWD</span> ▶▶</div>
+      <div class="rfwd-sub">Rental Financial Waste Defense</div>
+      <h4>Our proprietary system reviews every order for waste — systematically</h4>
+      <p>RentFWD compares every quote, contract, and final invoice against each other at every step of the rental lifecycle. It's a systematic defense against the categories of waste that quietly erode your rental budget on every project — with zero effort required from your team.</p>
+      <div class="rfwd-tags">
+        <span class="rfwd-tag">Rate Discrepancies</span>
+        <span class="rfwd-tag">Unauthorized Substitutions</span>
+        <span class="rfwd-tag">Off-Rent Timing</span>
+        <span class="rfwd-tag">Invoice Errors</span>
+        <span class="rfwd-tag">Repair Bill Review</span>
+        <span class="rfwd-tag">Ancillary Fee Auditing</span>
+        <span class="rfwd-tag">Freight Comparisons</span>
+        <span class="rfwd-tag">Buy vs. Lease vs. Rent Analysis</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-cta">
+    <h2>Protect your profit.<br><span>Start with one call.</span></h2>
+    <p>See how ProcuRents works as your embedded procurement partner — across every jobsite, every vendor, every rental.</p>
+    <div class="cta-row">
+      <a href="https://ProcuRents.com" class="btn-cta">Visit ProcuRents.com ↗</a>
+      <a href="https://ProcuRents.com#contact" class="btn-cta-out">Get In Touch</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div><span class="procu">Procu</span><span class="rents">Rents</span></div>
+    <small>Sourced. Delivered. Done. · Powered by RentFWD · © 2025 ProcuRents</small>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold:0.12});
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
