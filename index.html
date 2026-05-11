@@ -12,6 +12,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
 
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init({ publicKey: "f4ZFeMTXJKk3pYY37" });
+    })();
+  </script>
+
   <style>
     /* =============================================
        CSS CUSTOM PROPERTIES — BRAND PALETTE
@@ -198,7 +206,6 @@
       overflow: hidden;
     }
 
-    /* Animated background grid */
     .hero::before {
       content: '';
       position: absolute;
@@ -214,7 +221,6 @@
       to   { transform: translate(60px, 60px); }
     }
 
-    /* Glow orbs */
     .hero-orb {
       position: absolute;
       border-radius: 50%;
@@ -238,7 +244,6 @@
       50% { transform: translateY(-30px); }
     }
 
-    /* Diagonal slash decoration */
     .hero-slash {
       position: absolute;
       top: 0; right: 28%;
@@ -378,7 +383,7 @@
     }
 
     /* =============================================
-       HOW IT WORKS (light section)
+       HOW IT WORKS
     ============================================= */
     .section-how {
       padding: 100px 0;
@@ -459,7 +464,7 @@
     }
 
     /* =============================================
-       RENTFWD SECTION (dark)
+       RENTFWD SECTION
     ============================================= */
     .section-rentfwd {
       padding: 100px 0;
@@ -484,7 +489,6 @@
       position: relative;
       z-index: 1;
     }
-    .rentfwd-left {}
     .rfwd-eyebrow {
       font-family: var(--font-head);
       font-size: 11px;
@@ -494,9 +498,7 @@
       color: var(--pr-sky);
       margin-bottom: 10px;
     }
-    .rfwd-logo-display {
-      margin-bottom: 10px;
-    }
+    .rfwd-logo-display { margin-bottom: 10px; }
     .rfwd-logo-display .rent {
       font-family: var(--font-head);
       font-size: 54px;
@@ -556,7 +558,6 @@
       margin-bottom: 32px;
     }
 
-    /* Pipeline */
     .pipeline {
       display: flex;
       align-items: stretch;
@@ -603,7 +604,6 @@
       background: rgba(255,255,255,0.02);
     }
 
-    /* Outcome strip */
     .rfwd-outcome {
       display: flex;
       align-items: flex-start;
@@ -613,20 +613,10 @@
       border: 1px solid rgba(41,171,226,0.25);
       border-radius: var(--radius-md);
     }
-    .rfwd-outcome-icon {
-      font-size: 24px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .rfwd-outcome p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.6;
-    }
+    .rfwd-outcome-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+    .rfwd-outcome p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
     .rfwd-outcome strong { color: var(--pr-white); }
 
-    /* Catch grid (right column) */
-    .rentfwd-right {}
     .catch-label {
       font-family: var(--font-head);
       font-size: 11px;
@@ -665,14 +655,10 @@
       color: var(--pr-white);
       margin-bottom: 5px;
     }
-    .catch-item p {
-      font-size: 12px;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.5;
-    }
+    .catch-item p { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.5; }
 
     /* =============================================
-       SERVICES (light)
+       SERVICES
     ============================================= */
     .section-services {
       padding: 100px 0;
@@ -702,11 +688,7 @@
       transform-origin: left;
       transition: transform 0.3s;
     }
-    .service-card:hover {
-      border-color: var(--pr-sky-light);
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-4px);
-    }
+    .service-card:hover { border-color: var(--pr-sky-light); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
     .service-card:hover::after { transform: scaleX(1); }
     .svc-icon {
       width: 44px; height: 44px;
@@ -732,11 +714,7 @@
       color: var(--pr-navy);
       margin-bottom: 8px;
     }
-    .service-card p {
-      font-size: 13px;
-      color: #5a6880;
-      line-height: 1.6;
-    }
+    .service-card p { font-size: 13px; color: #5a6880; line-height: 1.6; }
 
     /* =============================================
        WHY PROCURENTS
@@ -788,11 +766,7 @@
       color: var(--pr-white);
       margin-bottom: 8px;
     }
-    .why-card p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.65;
-    }
+    .why-card p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.65; }
 
     /* =============================================
        INDUSTRIES
@@ -819,16 +793,8 @@
       transition: all 0.2s;
       cursor: default;
     }
-    .industry-tag.active {
-      background: var(--pr-navy-mid);
-      color: var(--pr-white);
-      border-color: var(--pr-navy-mid);
-    }
-    .industry-tag:hover:not(.active) {
-      border-color: var(--pr-sky);
-      color: var(--pr-blue);
-    }
-    .industries-right {}
+    .industry-tag.active { background: var(--pr-navy-mid); color: var(--pr-white); border-color: var(--pr-navy-mid); }
+    .industry-tag:hover:not(.active) { border-color: var(--pr-sky); color: var(--pr-blue); }
     .industries-callout {
       background: var(--pr-white);
       border: 1px solid var(--pr-steel-light);
@@ -843,18 +809,8 @@
       color: var(--pr-navy);
       margin-bottom: 10px;
     }
-    .industries-callout p {
-      font-size: 14px;
-      color: #5a6880;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .callout-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .industries-callout p { font-size: 14px; color: #5a6880; line-height: 1.7; margin-bottom: 20px; }
+    .callout-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .callout-list li {
       display: flex;
       align-items: flex-start;
@@ -880,10 +836,7 @@
     /* =============================================
        CTA SECTION
     ============================================= */
-    .section-cta {
-      padding: 100px 0;
-      background: var(--pr-white);
-    }
+    .section-cta { padding: 100px 0; background: var(--pr-white); }
     .cta-card {
       background: linear-gradient(135deg, var(--pr-navy) 0%, var(--pr-blue) 100%);
       border-radius: var(--radius-xl);
@@ -968,17 +921,13 @@
     /* =============================================
        CONTACT SECTION
     ============================================= */
-    .section-contact {
-      padding: 100px 0;
-      background: var(--pr-off-white);
-    }
+    .section-contact { padding: 100px 0; background: var(--pr-off-white); }
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: start;
     }
-    .contact-left {}
     .contact-left .section-sub { margin-bottom: 32px; }
     .contact-info { display: flex; flex-direction: column; gap: 16px; }
     .contact-item {
@@ -1067,6 +1016,13 @@
       margin-top: 4px;
     }
     .form-submit:hover { background: var(--pr-sky); transform: translateY(-1px); }
+    .form-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+    #pr-status {
+      margin-top: 12px;
+      font-size: 13px;
+      font-family: var(--font-body);
+      min-height: 20px;
+    }
 
     /* =============================================
        FOOTER
@@ -1082,7 +1038,6 @@
       gap: 48px;
       margin-bottom: 48px;
     }
-    .footer-brand {}
     .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
     .footer-logo .procu { font-family: var(--font-head); font-size: 22px; font-weight: 700; color: var(--pr-steel); }
     .footer-logo .rents { font-family: var(--font-head); font-size: 22px; font-weight: 700; color: var(--pr-sky); }
@@ -1094,12 +1049,7 @@
       color: rgba(255,255,255,0.30);
       margin-bottom: 16px;
     }
-    .footer-desc {
-      font-size: 13px;
-      color: rgba(255,255,255,0.40);
-      line-height: 1.7;
-      max-width: 280px;
-    }
+    .footer-desc { font-size: 13px; color: rgba(255,255,255,0.40); line-height: 1.7; max-width: 280px; }
     .footer-rfwd-badge {
       display: inline-flex;
       align-items: center;
@@ -1124,11 +1074,7 @@
       margin-bottom: 18px;
     }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col li a {
-      font-size: 14px;
-      color: rgba(255,255,255,0.40);
-      transition: color 0.2s;
-    }
+    .footer-col li a { font-size: 14px; color: rgba(255,255,255,0.40); transition: color 0.2s; }
     .footer-col li a:hover { color: var(--pr-sky); }
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.06);
@@ -1149,10 +1095,7 @@
       transform: translateY(28px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
     .fade-up-delay-1 { transition-delay: 0.1s; }
     .fade-up-delay-2 { transition-delay: 0.2s; }
     .fade-up-delay-3 { transition-delay: 0.3s; }
@@ -1334,8 +1277,6 @@
   <section class="section-rentfwd" id="rentfwd">
     <div class="container">
       <div class="rentfwd-grid">
-
-        <!-- LEFT: RentFWD intro -->
         <div class="rentfwd-left fade-up">
           <div class="rfwd-eyebrow">Proprietary Technology</div>
           <div class="rfwd-logo-display">
@@ -1343,13 +1284,10 @@
           </div>
           <div class="rfwd-full-name">Rental Financial Waste Defense</div>
           <div class="rfwd-prop-badge">Powered by ProcuRents</div>
-
           <div class="rfwd-headline">The engine behind every order — built to protect your bottom line.</div>
           <div class="rfwd-desc">
             Most companies overpay on rentals without ever knowing it. Unauthorized substitutions slip through. Invoices don't match contracts. Off-rent timing drags on. RentFWD is our rules-based review system that compares every quote, contract, and final invoice against each other — catching discrepancies before they cost you money. Every dollar it recovers goes directly back to your profit.
           </div>
-
-          <!-- Pipeline diagram -->
           <div class="pipeline">
             <div class="pipe-step">
               <div class="pipe-icon">📋</div>
@@ -1375,14 +1313,11 @@
               <div class="pipe-sub">Zero waste approved</div>
             </div>
           </div>
-
           <div class="rfwd-outcome">
             <div class="rfwd-outcome-icon">▶▶</div>
             <p>Every dollar RentFWD recovers goes <strong>directly to your bottom line.</strong> Reduced rental spend is profit — dollar for dollar. No software to install, no dashboards to manage. We run it for you on every single order.</p>
           </div>
         </div>
-
-        <!-- RIGHT: What it catches -->
         <div class="rentfwd-right fade-up fade-up-delay-1">
           <div class="catch-label">What RentFWD Catches</div>
           <div class="catch-grid">
@@ -1428,7 +1363,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -1571,7 +1505,7 @@
               <div class="contact-item-icon">
                 <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </div>
-              help@procurents.com
+              info@procurents.com
             </div>
             <div class="contact-item">
               <div class="contact-item-icon">
@@ -1581,34 +1515,36 @@
             </div>
           </div>
         </div>
+
+        <!-- CONTACT FORM — EmailJS wired in; only ids, onclick, and status <p> added -->
         <div class="contact-right fade-up fade-up-delay-1">
           <div class="contact-form">
             <h3>Start the Conversation</h3>
             <div class="form-row">
               <div class="form-group">
                 <label>First Name</label>
-                <input type="text" placeholder="John" />
+                <input type="text" id="pr-firstName" placeholder="John" />
               </div>
               <div class="form-group">
                 <label>Last Name</label>
-                <input type="text" placeholder="Smith" />
+                <input type="text" id="pr-lastName" placeholder="Smith" />
               </div>
             </div>
             <div class="form-group">
               <label>Company Name</label>
-              <input type="text" placeholder="Smith Construction Co." />
+              <input type="text" id="pr-company" placeholder="Smith Construction Co." />
             </div>
             <div class="form-group">
               <label>Email Address</label>
-              <input type="email" placeholder="john@smithconstruction.com" />
+              <input type="email" id="pr-email" placeholder="john@smithconstruction.com" />
             </div>
             <div class="form-group">
               <label>Phone Number</label>
-              <input type="tel" placeholder="(555) 000-0000" />
+              <input type="tel" id="pr-phone" placeholder="(555) 000-0000" />
             </div>
             <div class="form-group">
               <label>What best describes your business?</label>
-              <select>
+              <select id="pr-businessType">
                 <option value="">Select an option...</option>
                 <option>General Contractor</option>
                 <option>Specialty Trade Contractor</option>
@@ -1621,11 +1557,13 @@
             </div>
             <div class="form-group">
               <label>Tell us about your rental needs</label>
-              <textarea placeholder="Describe your typical rental volume, equipment types, pain points, etc..."></textarea>
+              <textarea id="pr-message" placeholder="Describe your typical rental volume, equipment types, pain points, etc..."></textarea>
             </div>
-            <button class="form-submit" type="button">Send Message ↗</button>
+            <button class="form-submit" id="pr-submitBtn" type="button" onclick="prHandleSubmit()">Send Message ↗</button>
+            <p id="pr-status"></p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1685,52 +1623,90 @@
   <script>
     // Mobile menu toggle
     function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('open');
+      document.getElementById('mobileMenu').classList.toggle('open');
     }
 
     // Scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.12 });
-
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Nav active link highlighting on scroll
+    // Nav active link highlighting
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
-
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
+        if (pageYOffset >= section.offsetTop - 100) current = section.getAttribute('id');
       });
       navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
+        if (link.getAttribute('href') === '#' + current) link.classList.add('active');
       });
     });
 
-    // Form submit handler (placeholder)
-    document.querySelector('.form-submit').addEventListener('click', function() {
-      const btn = this;
-      const orig = btn.textContent;
-      btn.textContent = 'Message Sent! We\'ll be in touch soon.';
-      btn.style.background = '#1D9E75';
-      setTimeout(() => {
-        btn.textContent = orig;
-        btn.style.background = '';
-      }, 4000);
-    });
+    // EmailJS form handler
+    function prHandleSubmit() {
+      var btn    = document.getElementById('pr-submitBtn');
+      var status = document.getElementById('pr-status');
+
+      var firstName    = document.getElementById('pr-firstName').value.trim();
+      var lastName     = document.getElementById('pr-lastName').value.trim();
+      var company      = document.getElementById('pr-company').value.trim();
+      var email        = document.getElementById('pr-email').value.trim();
+      var phone        = document.getElementById('pr-phone').value.trim();
+      var businessType = document.getElementById('pr-businessType').value;
+      var message      = document.getElementById('pr-message').value.trim();
+
+      if (!firstName || !lastName || !email || !message) {
+        status.style.color = '#c0392b';
+        status.textContent = 'Please fill in your first name, last name, email, and message.';
+        return;
+      }
+
+      btn.disabled    = true;
+      btn.textContent = 'Sending...';
+      status.textContent = '';
+
+      emailjs.send('form_submission', 'contact_us_procurents', {
+        first_name    : firstName,
+        last_name     : lastName,
+        full_name     : firstName + ' ' + lastName,
+        company       : company,
+        email         : email,
+        phone         : phone,
+        business_type : businessType,
+        message       : message
+      })
+      .then(function () {
+        btn.disabled       = false;
+        btn.textContent    = 'Send Message ↗';
+        btn.style.background = '#1D9E75';
+        status.style.color = '#1D9E75';
+        status.textContent = "Message sent! We'll be in touch shortly.";
+
+        // Clear fields
+        ['pr-firstName','pr-lastName','pr-company','pr-email','pr-phone','pr-message'].forEach(function(id) {
+          document.getElementById(id).value = '';
+        });
+        document.getElementById('pr-businessType').value = '';
+
+        // Reset button color after 4s
+        setTimeout(function () {
+          btn.style.background = '';
+        }, 4000);
+      })
+      .catch(function (err) {
+        btn.disabled       = false;
+        btn.textContent    = 'Send Message ↗';
+        status.style.color = '#c0392b';
+        status.textContent = 'Something went wrong. Please try again or email us directly at info@procurents.com.';
+        console.error('EmailJS error:', err);
+      });
+    }
   </script>
 
 </body>
