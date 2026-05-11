@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — ProcuRents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pr-navy:    #0D1B4A;
+      --pr-blue:    #1B6EC2;
+      --pr-sky:     #29ABE2;
+      --pr-sky-light:#72CBF0;
+      --pr-steel:   #8A9BB0;
+      --pr-white:   #FFFFFF;
+      --pr-dark-bg: #080F2B;
+      --font-head: 'Barlow Condensed', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--pr-dark-bg);
+      color: var(--pr-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Animated grid background */
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(41,171,226,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(41,171,226,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridDrift 20s linear infinite;
+    }
+    @keyframes gridDrift {
+      from { transform: translate(0,0); }
+      to   { transform: translate(60px,60px); }
+    }
+
+    /* Glow orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+    }
+    .orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(41,171,226,0.15) 0%, transparent 70%);
+      top: -150px; right: -150px;
+      animation: orbFloat 8s ease-in-out infinite;
+    }
+    .orb-2 {
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(27,110,194,0.20) 0%, transparent 70%);
+      bottom: -100px; left: -100px;
+      animation: orbFloat 12s ease-in-out infinite reverse;
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-30px); }
+    }
+
+    /* Card */
+    .card {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 64px 56px;
+      max-width: 560px;
+      width: 90%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(41,171,226,0.20);
+      border-radius: 24px;
+      animation: fadeUp 0.7s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .logo .procu { font-family: var(--font-head); font-size: 22px; font-weight: 700; color: var(--pr-steel); }
+    .logo .rents { font-family: var(--font-head); font-size: 22px; font-weight: 700; color: var(--pr-sky); }
+
+    /* Check icon */
+    .check-wrap {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: rgba(41,171,226,0.12);
+      border: 1.5px solid rgba(41,171,226,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      animation: popIn 0.5s 0.4s ease both;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.6); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .check-wrap svg {
+      width: 32px; height: 32px;
+      stroke: var(--pr-sky);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    h1 {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--pr-white);
+      margin-bottom: 16px;
+    }
+    h1 span { color: var(--pr-sky); }
+
+    p.sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    /* Divider */
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pr-sky), var(--pr-blue));
+      border-radius: 2px;
+      margin: 0 auto 40px;
+    }
+
+    /* Tagline */
+    .tagline {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--pr-sky);
+      margin-bottom: 36px;
+      opacity: 0.80;
+    }
+
+    /* Countdown ring */
+    .countdown-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .ring {
+      position: relative;
+      width: 56px; height: 56px;
+    }
+    .ring svg {
+      width: 56px; height: 56px;
+      transform: rotate(-90deg);
+    }
+    .ring-bg {
+      fill: none;
+      stroke: rgba(255,255,255,0.08);
+      stroke-width: 3;
+    }
+    .ring-fill {
+      fill: none;
+      stroke: var(--pr-sky);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 138.2; /* 2π × 22 */
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 1s linear;
+    }
+    .ring-num {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--pr-sky);
+    }
+    .countdown-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="card">
+
+    <div class="logo">
+      <svg width="30" height="30" viewBox="0 0 38 38" fill="none">
+        <text x="2" y="28" font-size="26" font-weight="800" fill="#8A9BB0" font-family="serif">P</text>
+        <text x="16" y="28" font-size="26" font-weight="800" fill="#29ABE2" font-family="serif">R</text>
+        <line x1="26" y1="2" x2="14" y2="36" stroke="#1B6EC2" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="procu">Procu</span><span class="rents">Rents</span>
+    </div>
+
+    <div class="check-wrap">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+
+    <h1>Message <span>Received.</span></h1>
+
+    <div class="divider"></div>
+
+    <p class="sub">
+      Thanks for reaching out. A member of the ProcuRents team will be in touch with you shortly.
+    </p>
+
+    <div class="tagline">Sourced. &nbsp;Delivered. &nbsp;Done.</div>
+
+    <div class="countdown-wrap">
+      <div class="ring">
+        <svg viewBox="0 0 56 56">
+          <circle class="ring-bg" cx="28" cy="28" r="22"/>
+          <circle class="ring-fill" id="ringFill" cx="28" cy="28" r="22"/>
+        </svg>
+        <div class="ring-num" id="countNum">6</div>
+      </div>
+      <div class="countdown-label">Returning to site...</div>
+    </div>
+
+  </div>
+
+  <script>
+    var total     = 6;
+    var remaining = total;
+    var circumference = 2 * Math.PI * 22; // 138.23
+    var ring      = document.getElementById('ringFill');
+    var numEl     = document.getElementById('countNum');
+
+    ring.style.strokeDashoffset = 0;
+
+    var interval = setInterval(function () {
+      remaining--;
+      numEl.textContent = remaining;
+      var progress = (total - remaining) / total;
+      ring.style.strokeDashoffset = circumference * progress;
+
+      if (remaining <= 0) {
+        clearInterval(interval);
+        window.location.href = '/'; /* ← update if your main page isn't at root */
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
