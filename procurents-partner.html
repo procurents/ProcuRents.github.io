@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partner With ProcuRents | Rental Company Partnership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1B6EC2;
+    --navy: #1A2F6E;
+    --silver: #8A9BB0;
+    --sky: #29ABE2;
+    --slash: #2255A4;
+    --white: #FFFFFF;
+    --off-white: #F4F6FA;
+    --dark: #0E1C3D;
+    --text: #2C3A52;
+    --border: #D6DDE8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    background: rgba(26, 47, 110, 0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(41,171,226,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  .nav-logo span { color: var(--sky); }
+
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--sky);
+    padding: 9px 24px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--white); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 48px 80px;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(41,171,226,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,171,226,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-accent {
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(27,110,194,0.35) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-slash {
+    position: absolute;
+    bottom: 0; left: 52%;
+    width: 4px; height: 60%;
+    background: linear-gradient(to bottom, transparent, var(--sky), transparent);
+    transform: rotate(12deg) translateX(-50%);
+    opacity: 0.3;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px; height: 2px;
+    background: var(--sky);
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: var(--white);
+    letter-spacing: 0.01em;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--sky);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.72);
+    max-width: 560px;
+    margin-bottom: 44px;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--sky);
+    padding: 14px 36px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+
+  .btn-primary:hover {
+    background: var(--white);
+    transform: translateY(-2px);
+  }
+
+  .hero-scroll {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .hero-scroll:hover { color: var(--sky); }
+
+  .hero-scroll-arrow {
+    width: 20px; height: 20px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+  }
+
+  .hero-stats {
+    position: absolute;
+    right: 48px; bottom: 60px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s ease forwards;
+  }
+
+  .hero-stat {
+    text-align: right;
+  }
+
+  .hero-stat-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 42px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .hero-stat-number span { color: var(--sky); }
+
+  .hero-stat-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--silver);
+    margin-top: 4px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-content {
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  /* PROBLEM */
+  .problem {
+    background: var(--off-white);
+    padding: 100px 48px;
+    position: relative;
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--blue);
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: clamp(32px, 4vw, 52px);
+    text-transform: uppercase;
+    color: var(--navy);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    margin-bottom: 20px;
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: var(--blue);
+  }
+
+  .problem-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .problem-intro {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text);
+    margin-top: 24px;
+  }
+
+  .problem-transition {
+    margin-top: 32px;
+    padding: 24px 28px;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    position: relative;
+  }
+
+  .problem-transition::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--sky);
+  }
+
+  .problem-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 56px;
+  }
+
+  .problem-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 24px;
+    background: var(--white);
+    border-left: 3px solid var(--border);
+    transition: border-color 0.2s;
+  }
+
+  .problem-item:hover { border-color: var(--blue); }
+
+  .problem-icon {
+    width: 36px; height: 36px;
+    flex-shrink: 0;
+    background: rgba(27,110,194,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue);
+    font-size: 16px;
+  }
+
+  .problem-item-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  /* HOW IT WORKS */
+  .how {
+    padding: 100px 48px;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .how::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(41,171,226,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,171,226,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .how-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .how .section-label { color: var(--sky); }
+  .how .section-label::before { background: var(--sky); }
+  .how .section-title { color: var(--white); }
+
+  .how-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    margin-top: 60px;
+    position: relative;
+  }
+
+  .how-steps::before {
+    content: '';
+    position: absolute;
+    top: 52px; left: 16.5%; right: 16.5%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--sky), var(--blue));
+    z-index: 0;
+  }
+
+  .how-step {
+    padding: 48px 36px 40px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .how-step:hover { background: rgba(255,255,255,0.08); }
+
+  .step-number {
+    width: 52px; height: 52px;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+
+  .how-step h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+
+  .how-step p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* BENEFITS */
+  .benefits {
+    padding: 100px 48px;
+    background: var(--white);
+  }
+
+  .benefits-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .benefits-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 64px;
+    align-items: end;
+  }
+
+  .benefits-intro {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text);
+    margin-top: 20px;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .benefit-card {
+    padding: 36px 32px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    background: var(--white);
+  }
+
+  .benefit-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--sky));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .benefit-card:hover {
+    border-color: rgba(27,110,194,0.3);
+    box-shadow: 0 8px 32px rgba(26,47,110,0.08);
+    transform: translateY(-3px);
+  }
+
+  .benefit-card:hover::after { transform: scaleX(1); }
+
+  .benefit-icon {
+    width: 44px; height: 44px;
+    background: rgba(27,110,194,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--blue);
+    font-size: 20px;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+
+  .benefit-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .benefit-card p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--text);
+  }
+
+  .benefit-audience {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--silver);
+    background: var(--off-white);
+    padding: 4px 10px;
+  }
+
+  /* WHO WE WORK WITH */
+  .who {
+    padding: 100px 48px;
+    background: var(--off-white);
+  }
+
+  .who-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .who-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .who-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    padding: 18px 20px;
+    background: var(--white);
+    border-left: 3px solid var(--blue);
+  }
+
+  .who-item-dot {
+    width: 8px; height: 8px;
+    background: var(--sky);
+    flex-shrink: 0;
+  }
+
+  .who-statement {
+    background: var(--navy);
+    padding: 48px 44px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .who-statement::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 24px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 160px;
+    font-weight: 900;
+    color: rgba(41,171,226,0.12);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .who-statement p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  .who-statement strong {
+    font-weight: 600;
+    color: var(--sky);
+  }
+
+  /* FAQ */
+  .faq {
+    padding: 100px 48px;
+    background: var(--white);
+  }
+
+  .faq-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-inner .section-label,
+  .faq-inner .section-title {
+    text-align: center;
+  }
+
+  .faq-inner .section-label {
+    justify-content: center;
+  }
+
+  .faq-inner .section-label::before { display: none; }
+
+  .faq-list {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .faq-item {
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 28px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--navy);
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s;
+  }
+
+  .faq-q:hover { background: var(--off-white); }
+
+  .faq-q.open { background: var(--navy); color: var(--white); }
+
+  .faq-chevron {
+    width: 20px; height: 20px;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+    color: inherit;
+  }
+
+  .faq-q.open .faq-chevron { transform: rotate(180deg); }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.3s;
+    padding: 0 28px;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--off-white);
+  }
+
+  .faq-a.open {
+    max-height: 200px;
+    padding: 20px 28px;
+  }
+
+  /* CTA / FORM */
+  .cta-section {
+    padding: 100px 48px;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(41,171,226,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,171,226,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .cta-section .section-label { color: var(--sky); }
+  .cta-section .section-label::before { background: var(--sky); }
+  .cta-section .section-title { color: var(--white); }
+
+  .cta-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 56px;
+  }
+
+  .cta-left p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+    margin-top: 20px;
+  }
+
+  .cta-trust {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 40px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .trust-dot {
+    width: 6px; height: 6px;
+    background: var(--sky);
+    flex-shrink: 0;
+  }
+
+  .form-card {
+    background: var(--white);
+    padding: 44px 40px;
+    position: relative;
+  }
+
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--sky));
+  }
+
+  .form-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--navy);
+    margin-bottom: 28px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .form-group.full { grid-column: 1 / -1; }
+
+  label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--silver);
+  }
+
+  input, select, textarea {
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    appearance: none;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--blue);
+  }
+
+  textarea { resize: vertical; min-height: 90px; }
+
+  .form-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 8px;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+
+  .form-submit:hover { background: var(--sky); transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .footer-logo span { color: var(--sky); }
+
+  .footer-tagline {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--silver);
+    margin-top: 4px;
+  }
+
+  footer p {
+    font-size: 13px;
+    color: var(--silver);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-stats { display: none; }
+    .problem-layout, .who-inner, .cta-layout, .benefits-header {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .benefits-grid { grid-template-columns: 1fr 1fr; }
+    .how-steps { grid-template-columns: 1fr; }
+    .how-steps::before { display: none; }
+    .problem, .how, .benefits, .who, .faq, .cta-section { padding: 72px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 600px) {
+    .benefits-grid { grid-template-columns: 1fr; }
+    .form-card { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Procu<span>Rents</span></div>
+  <a href="#partner-form" class="nav-cta">Become a Partner</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-slash"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Rental Company Partnerships</div>
+    <h1>Your Equipment.<br><em>Our Customers.</em><br>A Smarter Deal.</h1>
+    <p class="hero-sub">ProcuRents connects your fleet to qualified contractors and construction companies — and manages every administrative touchpoint so your team can stay focused on what matters.</p>
+    <div class="hero-cta-group">
+      <a href="#how-it-works" class="btn-primary">See How It Works</a>
+      <a href="#partner-form" class="hero-scroll">
+        <span class="hero-scroll-arrow">↓</span>
+        Become a Partner
+      </a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-number">1<span>x</span></div>
+      <div class="hero-stat-label">Single AR Contact</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number"><span>↑</span> Volume</div>
+      <div class="hero-stat-label">Steady Order Flow</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">0</div>
+      <div class="hero-stat-label">Admin Overhead</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="problem-layout">
+    <div>
+      <div class="section-label">The Real Cost of Contractor Accounts</div>
+      <h2 class="section-title">You Know <em>This Pain</em> Well</h2>
+      <p class="problem-intro">Serving contractors and construction companies is good business — until it isn't. The volume is there, but so is the chaos. Last-minute calls. Off-rent surprises. Invoice disputes. Slow payments.</p>
+      <div class="problem-transition">
+        ProcuRents was built to solve this — for contractors <em>and</em> for you. We're the layer between your operation and the complexity of construction site procurement.
+      </div>
+    </div>
+    <ul class="problem-list">
+      <li class="problem-item reveal">
+        <div class="problem-icon">📞</div>
+        <div class="problem-item-text">Contractors call last-minute, change orders mid-job, and go off-rent without coordinating — leaving your assets idle and your team scrambling.</div>
+      </li>
+      <li class="problem-item reveal">
+        <div class="problem-icon">💸</div>
+        <div class="problem-item-text">Invoices get disputed, delayed, or ignored — and chasing payment across dozens of scattered job sites eats into your margins.</div>
+      </li>
+      <li class="problem-item reveal">
+        <div class="problem-icon">📋</div>
+        <div class="problem-item-text">Your sales team spends time managing paperwork and fielding admin calls instead of growing accounts and driving new business.</div>
+      </li>
+      <li class="problem-item reveal">
+        <div class="problem-icon">🗂️</div>
+        <div class="problem-item-text">Managing 40 individual contractor accounts means 40 different contacts, payment schedules, and communication styles — all for unpredictable volume.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how-it-works">
+  <div class="how-inner">
+    <div class="section-label">The Partnership Model</div>
+    <h2 class="section-title">Simple Process.<br><em>Real Results.</em></h2>
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="step-number">01</div>
+        <h3>We Source the Need</h3>
+        <p>ProcuRents receives equipment requests from vetted contractors and construction companies. We handle quoting, purchase orders, scheduling coordination, and all pre-delivery communication — before we ever contact you.</p>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-number">02</div>
+        <h3>You Fulfill the Order</h3>
+        <p>We route qualified, confirmed orders to you. You deliver what you do best — we've already handled the noise. Clean orders, clear timelines, and a single point of accountability on our end.</p>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-number">03</div>
+        <h3>We Handle Everything After</h3>
+        <p>Off-rent coordination, damage documentation, invoice review, and payment all flow through ProcuRents. You invoice us — not 40 contractors. One relationship. One AR contact. Done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="benefits-inner">
+    <div class="benefits-header">
+      <div>
+        <div class="section-label">What You Gain</div>
+        <h2 class="section-title">Six Reasons<br>Rental Companies<br><em>Choose ProcuRents</em></h2>
+      </div>
+      <p class="benefits-intro">Whether you're an owner looking at the bottom line, a branch manager focused on volume, or an ops team trying to reduce friction — there's a direct benefit for you in this partnership.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">📈</div>
+        <h3>Steady, Reliable Order Volume</h3>
+        <p>Recurring business from vetted, qualified contractors — not unpredictable one-off calls. ProcuRents brings you consistent demand you can plan around.</p>
+        <span class="benefit-audience">Owner / Executive</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🔄</div>
+        <h3>Faster Off-Rent Coordination</h3>
+        <p>We proactively manage return timing with contractors so your assets don't sit idle on job sites longer than necessary. Less dead time. Better utilization.</p>
+        <span class="benefit-audience">Operations</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">⚙️</div>
+        <h3>Reduced Admin Burden</h3>
+        <p>One point of contact for purchase orders, confirmations, and change orders. We absorb the back-and-forth so your team doesn't have to.</p>
+        <span class="benefit-audience">Operations / Branch Manager</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">💳</div>
+        <h3>Faster Invoice Processing & Payment</h3>
+        <p>Consolidated billing through ProcuRents means fewer disputes, cleaner records, and more predictable cash flow. You know who you're getting paid by — and when.</p>
+        <span class="benefit-audience">Owner / Executive</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🗺️</div>
+        <h3>Geographic Market Expansion</h3>
+        <p>Reach contractors and construction companies in your area who you may not have existing relationships with. ProcuRents opens doors you'd otherwise have to knock on yourself.</p>
+        <span class="benefit-audience">Sales / Branch Manager</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🎯</div>
+        <h3>AR Contact Consolidation</h3>
+        <p>Instead of managing receivables across dozens of contractor accounts, you have one accountable partner: ProcuRents. One invoice. One contact. Dramatically less overhead.</p>
+        <span class="benefit-audience">Owner / Executive</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE WORK WITH -->
+<section class="who">
+  <div class="who-inner">
+    <div>
+      <div class="section-label">Ideal Partners</div>
+      <h2 class="section-title">Who We <em>Work With</em></h2>
+      <ul class="who-list reveal">
+        <li class="who-item"><div class="who-item-dot"></div>Regional and national equipment rental companies</li>
+        <li class="who-item"><div class="who-item-dot"></div>Single-location independents looking to grow volume</li>
+        <li class="who-item"><div class="who-item-dot"></div>Specialty rental providers — aerial, earthmoving, climate control, and more</li>
+        <li class="who-item"><div class="who-item-dot"></div>Companies that value clean processes and reliable communication</li>
+        <li class="who-item"><div class="who-item-dot"></div>Operations that want a true partner, not just another customer</li>
+      </ul>
+    </div>
+    <div class="who-statement reveal">
+      <p>We're <strong>selective about who we partner with</strong> — because our contractor clients expect the best. That selectivity works both ways: we invest in our rental partners, advocate for fair treatment, and hold ourselves accountable when things don't go right.</p>
+      <p style="margin-top: 20px;">If you run a tight operation and want a channel that sends you clean, confirmed orders — we should talk.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="section-label">Common Questions</div>
+    <h2 class="section-title">Answers Before <em>You Ask</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do we have to change how we operate?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">No. ProcuRents adapts to your existing systems and processes. We don't ask you to change dispatch software, billing formats, or internal workflows. We plug into what you already do.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How does pricing and billing work?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">We handle billing on the contractor side. You invoice ProcuRents directly — at your standard rates — and we manage the client relationship, payment collection, and any disputes. Clean and simple.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Are we exclusive to ProcuRents?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">Not at all. ProcuRents is an additional revenue channel for your business — not an exclusive arrangement. You continue serving your existing customers exactly as you do today.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What happens if there's a damage dispute?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">ProcuRents is the first call, not you. We manage damage coordination, documentation, and resolution with the contractor. You communicate with us — we handle the rest.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What equipment categories do you work with?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">We work across the full spectrum of construction equipment rental — aerial lifts, earthmoving, compaction, climate control, generators, temporary power, and more. If your fleet serves contractors, we want to talk.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How quickly can we get started?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">After an initial conversation to confirm fit, onboarding is straightforward. We'll gather what we need to represent your inventory and rates, and you can start receiving orders quickly — typically within days.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / FORM -->
+<section class="cta-section" id="partner-form">
+  <div class="cta-inner">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-title">Ready to Add a Revenue Channel<br><em>That Runs Itself?</em></h2>
+    <div class="cta-layout">
+      <div class="cta-left">
+        <p>Tell us about your operation and we'll reach out to explore fit. No commitment required — just a conversation about whether ProcuRents makes sense for your business.</p>
+        <div class="cta-trust">
+          <div class="trust-item"><div class="trust-dot"></div> No commitment required</div>
+          <div class="trust-item"><div class="trust-dot"></div> Response within 1 business day</div>
+          <div class="trust-item"><div class="trust-dot"></div> Selective partnerships — we vet fit on both sides</div>
+          <div class="trust-item"><div class="trust-dot"></div> No exclusivity required</div>
+        </div>
+      </div>
+      <div class="form-card">
+        <div class="form-title">Partner Inquiry</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" placeholder="ABC Equipment Rental">
+          </div>
+          <div class="form-group">
+            <label for="contact">Your Name</label>
+            <input type="text" id="contact" placeholder="Jane Smith">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="title">Your Title</label>
+            <input type="text" id="title" placeholder="Owner / Branch Manager">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="jane@abcrental.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="(555) 000-0000">
+          </div>
+          <div class="form-group">
+            <label for="region">Service Area</label>
+            <input type="text" id="region" placeholder="e.g. Dallas-Fort Worth, TX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="categories">Primary Equipment Categories</label>
+          <input type="text" id="categories" placeholder="e.g. Aerial lifts, earthmoving, generators">
+        </div>
+        <div class="form-group">
+          <label for="message">Anything else we should know?</label>
+          <textarea id="message" placeholder="Fleet size, locations, current contractor volume, etc."></textarea>
+        </div>
+        <button class="form-submit">Submit Partnership Inquiry →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Procu<span>Rents</span></div>
+    <div class="footer-tagline">Sourced. Delivered. Done.</div>
+  </div>
+  <p>© 2026 ProcuRents. All rights reserved.</p>
+</footer>
+
+<script>
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.faq-q.open').forEach(q => {
+      q.classList.remove('open');
+      q.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      btn.classList.add('open');
+      answer.classList.add('open');
+    }
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Stagger siblings
+  document.querySelectorAll('.benefits-grid, .problem-list, .how-steps, .who-list').forEach(container => {
+    container.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 80}ms`;
+    });
+  });
+</script>
+</body>
+</html>
