@@ -1,0 +1,9 @@
+---
+description: Marketing site for procurents.com — public copy only, no SMS keywords or internal system names
+globs: **/*
+alwaysApply: true
+---
+# procurents.com marketing site
+- Outcome-focused copy for contractors; do not publish SMS keywords or internal tool names.
+- RentFWD: benefit language only, not audit step internals.
+- App code lives in sibling folder procurents-app; do not edit app files when changing marketing copy.
