@@ -96,7 +96,32 @@
       line-height: 1.0; letter-spacing: -0.3px; color: var(--pr-white); margin-bottom: 22px;
       opacity: 0; animation: up 0.6s 0.1s forwards;
     }
-    .hero h1 .accent { color: var(--role); display: block; }
+    .hero h1 .accent { color: var(--role); display: block; margin-top: 6px; }
+    .hero-simplicity {
+      display: block; margin: 20px 0 22px;
+      opacity: 0; animation: up 0.6s 0.16s forwards;
+    }
+    .hero-no-list {
+      list-style: none; margin: 0 0 16px; padding: 0;
+      display: flex; flex-direction: column; gap: 5px;
+    }
+    .hero-no-list li {
+      font-family: var(--font-head); font-size: clamp(15px, 2.8vw, 20px); font-weight: 600;
+      letter-spacing: 0.4px; color: rgba(255,255,255,0.36);
+      display: flex; align-items: center; gap: 10px; line-height: 1.3;
+    }
+    .hero-no-list li::before {
+      content: '✕'; color: rgba(255,107,43,0.60); font-size: 0.82em; flex-shrink: 0;
+    }
+    .hero-yes {
+      font-family: var(--font-head); font-size: clamp(18px, 3.2vw, 24px); font-weight: 600;
+      letter-spacing: 0.3px; color: rgba(255,255,255,0.84); line-height: 1.35; margin: 0;
+    }
+    .hero-yes strong { color: var(--role); font-weight: 700; }
+    .hero-vendor-note {
+      font-family: var(--font-head); font-size: clamp(15px, 2.8vw, 20px); font-weight: 600;
+      letter-spacing: 0.4px; color: rgba(255,255,255,0.48); line-height: 1.45; margin: 0 0 14px;
+    }
     @keyframes up { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
     .hero-sub {
       font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.62);
@@ -271,8 +296,21 @@
     <div class="hero-orb"></div>
     <div class="hero-content">
       <div class="hero-eyebrow">For Supers · PMs · Onsite Teams</div>
-      <h1>Need equipment?<br><span class="accent">We handle it.</span></h1>
-      <p class="hero-sub">Wrong equipment showed up. Vendor won&rsquo;t call back. Off-rent is overdue. <strong>Stop dealing with rental headaches on top of running a jobsite.</strong> Reach ProcuRents from the field by phone or text — we&rsquo;re your rental department, in your corner every day.</p>
+      <h1>
+        Need equipment?
+        <div class="hero-simplicity">
+          <ul class="hero-no-list">
+            <li>No apps</li>
+            <li>No portals</li>
+            <li>No logins</li>
+            <li>No websites</li>
+          </ul>
+          <p class="hero-vendor-note">No chasing vendors. No waiting on sales reps.</p>
+          <p class="hero-yes">Just your phone. Our number. <strong>Call or text.</strong></p>
+        </div>
+        <span class="accent">We handle it.</span>
+      </h1>
+      <p class="hero-sub">Wrong equipment showed up. Off-rent is overdue. <strong>Stop chasing rental yards and sales reps who never call back.</strong> We&rsquo;re your rental department, in your corner every day.</p>
       <div class="hero-actions">
         <a href="https://ProcuRents.com" class="btn-primary">See How It Works ↗</a>
         <a href="#pain" class="btn-outline">See the Pain Points</a>

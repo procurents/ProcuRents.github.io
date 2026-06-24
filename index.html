@@ -302,9 +302,20 @@
       font-size: 18px;
       color: rgba(255,255,255,0.70);
       line-height: 1.7;
+      margin-bottom: 14px;
+      max-width: 560px;
+    }
+    .hero-field-note {
+      font-family: var(--font-head);
+      font-size: clamp(16px, 2.5vw, 19px);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.45;
       margin-bottom: 12px;
       max-width: 560px;
     }
+    .hero-field-note .note-highlight { color: var(--pr-sky); }
     .hero-tagline {
       font-family: var(--font-head);
       font-size: 16px;
@@ -434,6 +445,53 @@
       height: 8px;
       border-radius: 50%;
       background: var(--pr-sky);
+    }
+    .field-simplicity {
+      margin: 0 auto 36px;
+      max-width: 420px;
+      text-align: left;
+    }
+    .field-no-list {
+      list-style: none;
+      margin: 0 0 16px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .field-no-list li {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 600;
+      color: #8a96a8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.3;
+    }
+    .field-no-list li::before {
+      content: '✕';
+      color: var(--pr-sky);
+      opacity: 0.65;
+      font-size: 0.9em;
+      flex-shrink: 0;
+    }
+    .field-yes {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--pr-navy);
+      line-height: 1.35;
+      margin: 0;
+    }
+    .field-yes .note-highlight { color: var(--pr-blue); }
+    .field-vendor-note {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 600;
+      color: #8a96a8;
+      line-height: 1.45;
+      margin: 0 0 10px;
     }
 
     .why-memory {
@@ -1252,8 +1310,9 @@
           <span class="highlight">Your profit, protected.</span>
         </h1>
         <p class="hero-desc">
-          ProcuRents is your embedded rental procurement partner — shopping vendors, placing orders, managing invoices, and handling off-renting. Your field teams reach us from the job site. We run the rest, with <strong style="color:var(--pr-sky);">RentFWD</strong> defending your spend at every checkpoint.
+          ProcuRents is your embedded rental procurement partner — shopping vendors, placing orders, managing invoices, and handling off-renting. We run the rest, with <strong style="color:var(--pr-sky);">RentFWD</strong> defending your spend at every checkpoint.
         </p>
+        <p class="hero-field-note">Your crews reach us from the job site — <span class="note-highlight">phone or text</span>. No app to install, no portal to log into. We handle vendor follow-up — so your team isn&rsquo;t waiting on yards that don&rsquo;t respond.</p>
         <div class="hero-tagline">Sourced. &nbsp;Delivered. &nbsp;Done.</div>
         <div class="hero-actions">
           <a href="#how-it-works" class="btn-hero-primary">See How It Works ↗</a>
@@ -1261,8 +1320,8 @@
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
-            <div class="num">100%</div>
-            <div class="lbl">On your side — not the rental vendor's</div>
+            <div class="num">Phone or Text</div>
+            <div class="lbl">From the jobsite — one contact, no app required</div>
           </div>
           <div class="hero-stat">
             <div class="num">End-to-End</div>
@@ -1331,7 +1390,17 @@
       <div class="field-inner fade-up">
         <div class="section-eyebrow">For Field Teams &amp; PMs</div>
         <h2 class="section-title">Built for the field — not the back office</h2>
-        <p class="field-intro">ProcuRents works the way construction teams actually operate: from the job site, on the phone you already carry.</p>
+        <p class="field-intro">ProcuRents works the way construction teams actually operate — from the job site, on the phone they already carry.</p>
+        <div class="field-simplicity fade-up fade-up-delay-1">
+          <ul class="field-no-list">
+            <li>No apps</li>
+            <li>No portals</li>
+            <li>No logins</li>
+            <li>No websites</li>
+          </ul>
+          <p class="field-vendor-note">No chasing vendors. No waiting on sales reps.</p>
+          <p class="field-yes">Just your phone — <span class="note-highlight">call or text</span>. We stay on vendors so your crew doesn&rsquo;t have to.</p>
+        </div>
         <ul class="field-bullets">
           <li>Order, return, or relocate equipment without calling five rental yards</li>
           <li>Approvers sign off from their phone — no email chains holding up the job</li>
@@ -1517,8 +1586,8 @@
         </div>
         <div class="industries-right fade-up fade-up-delay-1">
           <div class="industries-callout">
-            <h3>No software. No long contracts. No overhead.</h3>
-            <p>ProcuRents functions as an in-house logistics and financial review partner — your employees contact us directly with orders, and we handle everything from there.</p>
+            <h3>No software to install. No portals for your crew. No long contracts.</h3>
+            <p>ProcuRents functions as an in-house logistics and financial review partner — your employees contact us by phone or text from the field, and we handle everything from there.</p>
             <ul class="callout-list">
               <li>Works alongside your existing team and processes</li>
               <li>Your crews use the phone they already have — no app to install</li>
